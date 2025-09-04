@@ -1,0 +1,85 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x576c69d6e660 .scope module, "tb_xor_gate" "tb_xor_gate" 2 1;
+ .timescale 0 0;
+v0x576c69d978f0_0 .var "a", 0 0;
+v0x576c69d97990_0 .var "b", 0 0;
+RS_0x708f8dbcf1f8 .resolv tri, L_0x576c69d97e80, L_0x576c69d97f90, L_0x576c69d98090, L_0x576c69d98100;
+v0x576c69d97a60_0 .net8 "y", 0 0, RS_0x708f8dbcf1f8;  4 drivers, strength-aware
+S_0x576c69d83150 .scope module, "dut" "xor_gate" 2 4, 3 1 0, S_0x576c69d6e660;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_0x576c69d97c00 .functor BUFT 1, C8<771>, C4<0>, C4<0>, C4<0>;
+L_0x576c69d97ca0 .functor PMOS 1, L_0x576c69d97c00, v0x576c69d978f0_0, C4<0>, C4<0>;
+L_0x576c69d97d90 .functor PMOS 1, L_0x576c69d97c00, v0x576c69d97990_0, C4<0>, C4<0>;
+RS_0x708f8dbcf0a8 .resolv tri, L_0x576c69d98440, L_0x576c69d985d0;
+L_0x576c69d97e80 .functor PMOS 1, L_0x576c69d97ca0, RS_0x708f8dbcf0a8, C4<0>, C4<0>;
+RS_0x708f8dbcf0d8 .resolv tri, L_0x576c69d98860, L_0x576c69d988f0;
+L_0x576c69d97f90 .functor PMOS 1, L_0x576c69d97d90, RS_0x708f8dbcf0d8, C4<0>, C4<0>;
+L_0x576c69d98090 .functor NMOS 1, L_0x576c69d981c0, v0x576c69d978f0_0, C4<0>, C4<0>;
+L_0x576c69d98100 .functor NMOS 1, L_0x576c69d982d0, RS_0x708f8dbcf0a8, C4<0>, C4<0>;
+L_0x576c69d97b60 .functor BUFT 1, C8<770>, C4<0>, C4<0>, C4<0>;
+L_0x576c69d981c0 .functor NMOS 1, L_0x576c69d97b60, v0x576c69d97990_0, C4<0>, C4<0>;
+L_0x576c69d982d0 .functor NMOS 1, L_0x576c69d97b60, RS_0x708f8dbcf0d8, C4<0>, C4<0>;
+L_0x576c69d98440 .functor PMOS 1, L_0x576c69d97c00, v0x576c69d978f0_0, C4<0>, C4<0>;
+L_0x576c69d985d0 .functor NMOS 1, L_0x576c69d97b60, v0x576c69d97990_0, C4<0>, C4<0>;
+L_0x576c69d98860 .functor PMOS 1, L_0x576c69d97c00, v0x576c69d97990_0, C4<0>, C4<0>;
+L_0x576c69d988f0 .functor NMOS 1, L_0x576c69d97b60, v0x576c69d97990_0, C4<0>, C4<0>;
+v0x576c69d83330_0 .net "a", 0 0, v0x576c69d978f0_0;  1 drivers
+v0x576c69d970c0_0 .net "b", 0 0, v0x576c69d97990_0;  1 drivers
+v0x576c69d97180_0 .net8 "gnd", 0 0, L_0x576c69d97b60;  1 drivers, strength-aware
+v0x576c69d97220_0 .net8 "na", 0 0, RS_0x708f8dbcf0a8;  2 drivers, strength-aware
+v0x576c69d972e0_0 .net8 "nb", 0 0, RS_0x708f8dbcf0d8;  2 drivers, strength-aware
+v0x576c69d973f0_0 .net8 "vdd", 0 0, L_0x576c69d97c00;  1 drivers, strength-aware
+v0x576c69d974b0_0 .net8 "w1", 0 0, L_0x576c69d982d0;  1 drivers, strength-aware
+v0x576c69d97570_0 .net8 "w2", 0 0, L_0x576c69d981c0;  1 drivers, strength-aware
+v0x576c69d97630_0 .net8 "w3", 0 0, L_0x576c69d97d90;  1 drivers, strength-aware
+v0x576c69d976f0_0 .net8 "w4", 0 0, L_0x576c69d97ca0;  1 drivers, strength-aware
+v0x576c69d977b0_0 .net8 "y", 0 0, RS_0x708f8dbcf1f8;  alias, 4 drivers, strength-aware
+    .scope S_0x576c69d6e660;
+T_0 ;
+    %vpi_call 2 6 "$dumpfile", "xor_gate.vcd" {0 0 0};
+    %vpi_call 2 7 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x576c69d6e660 {0 0 0};
+    %vpi_call 2 8 "$monitor", "Time=0%t | a=%b | b=%b | y=%b", $time, v0x576c69d978f0_0, v0x576c69d97990_0, v0x576c69d97a60_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x576c69d6e660;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x576c69d978f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x576c69d97990_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x576c69d978f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x576c69d97990_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x576c69d978f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x576c69d97990_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x576c69d978f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x576c69d97990_0, 0, 1;
+    %delay 5, 0;
+    %vpi_call 2 15 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_xor_gate.v";
+    "xor_gate.v";
