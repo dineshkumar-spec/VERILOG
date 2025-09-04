@@ -1,0 +1,70 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x561362b69390 .scope module, "tbnor_gate" "tbnor_gate" 2 1;
+ .timescale 0 0;
+v0x561362b907a0_0 .var "a", 0 0;
+v0x561362b90840_0 .var "b", 0 0;
+RS_0x76e113a86108 .resolv tri, L_0x561362b90c90, L_0x561362b90e20, L_0x561362b90ee0;
+v0x561362b90910_0 .net8 "y", 0 0, RS_0x76e113a86108;  3 drivers, strength-aware
+S_0x561362b7d190 .scope module, "dut" "norgate" 2 4, 3 1 0, S_0x561362b69390;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_0x561362b90ab0 .functor BUFT 1, C8<771>, C4<0>, C4<0>, C4<0>;
+L_0x561362b90b50 .functor PMOS 1, L_0x561362b90ab0, v0x561362b90840_0, C4<0>, C4<0>;
+L_0x561362b90c90 .functor PMOS 1, L_0x561362b90b50, v0x561362b907a0_0, C4<0>, C4<0>;
+L_0x561362b90a10 .functor BUFT 1, C8<770>, C4<0>, C4<0>, C4<0>;
+L_0x561362b90e20 .functor NMOS 1, L_0x561362b90a10, v0x561362b907a0_0, C4<0>, C4<0>;
+L_0x561362b90ee0 .functor NMOS 1, L_0x561362b90a10, v0x561362b90840_0, C4<0>, C4<0>;
+v0x561362b7d3c0_0 .net "a", 0 0, v0x561362b907a0_0;  1 drivers
+v0x561362b90330_0 .net "b", 0 0, v0x561362b90840_0;  1 drivers
+v0x561362b903f0_0 .net8 "c", 0 0, L_0x561362b90b50;  1 drivers, strength-aware
+v0x561362b90490_0 .net8 "gnd", 0 0, L_0x561362b90a10;  1 drivers, strength-aware
+v0x561362b90550_0 .net8 "vdd", 0 0, L_0x561362b90ab0;  1 drivers, strength-aware
+v0x561362b90660_0 .net8 "y", 0 0, RS_0x76e113a86108;  alias, 3 drivers, strength-aware
+    .scope S_0x561362b69390;
+T_0 ;
+    %vpi_call 2 6 "$dumpfile", "nor_gate.vcd" {0 0 0};
+    %vpi_call 2 7 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x561362b69390 {0 0 0};
+    %vpi_call 2 8 "$monitor", "Time=%0t | a=%b | b=%b | y=%b", $time, v0x561362b907a0_0, v0x561362b90840_0, v0x561362b90910_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x561362b69390;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x561362b907a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x561362b90840_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x561362b907a0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x561362b90840_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x561362b907a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x561362b90840_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x561362b907a0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x561362b90840_0, 0, 1;
+    %delay 5, 0;
+    %vpi_call 2 15 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tbnor_gate.v";
+    "nor_gate.v";
