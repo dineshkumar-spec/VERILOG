@@ -1,0 +1,109 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x61dcb3e3ef10 .scope module, "tb_full_adder" "tb_full_adder" 2 1;
+ .timescale 0 0;
+v0x61dcb3e576f0_0 .var "a", 0 0;
+v0x61dcb3e577b0_0 .var "b", 0 0;
+v0x61dcb3e57880_0 .var "cin", 0 0;
+v0x61dcb3e57980_0 .net "cout", 0 0, L_0x61dcb3e58120;  1 drivers
+v0x61dcb3e57a50_0 .net "sum", 0 0, L_0x61dcb3e57c30;  1 drivers
+S_0x61dcb3e3f0a0 .scope module, "dut" "full_adder" 2 4, 3 1 0, S_0x61dcb3e3ef10;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "sum";
+    .port_info 4 /OUTPUT 1 "cout";
+L_0x61dcb3e57af0 .functor XOR 1, v0x61dcb3e576f0_0, v0x61dcb3e577b0_0, C4<0>, C4<0>;
+L_0x61dcb3e57c30 .functor XOR 1, L_0x61dcb3e57af0, v0x61dcb3e57880_0, C4<0>, C4<0>;
+L_0x61dcb3e57d90 .functor AND 1, v0x61dcb3e576f0_0, v0x61dcb3e577b0_0, C4<1>, C4<1>;
+L_0x61dcb3e57e00 .functor AND 1, v0x61dcb3e577b0_0, v0x61dcb3e57880_0, C4<1>, C4<1>;
+L_0x61dcb3e57f40 .functor AND 1, v0x61dcb3e576f0_0, v0x61dcb3e57880_0, C4<1>, C4<1>;
+v0x61dcb3e3f230_0 .net *"_ivl_0", 0 0, L_0x61dcb3e57af0;  1 drivers
+v0x61dcb3e56ee0_0 .net *"_ivl_10", 0 0, L_0x61dcb3e57f40;  1 drivers
+v0x61dcb3e56fc0_0 .net *"_ivl_4", 0 0, L_0x61dcb3e57d90;  1 drivers
+v0x61dcb3e57080_0 .net *"_ivl_6", 0 0, L_0x61dcb3e57e00;  1 drivers
+v0x61dcb3e57160_0 .net *"_ivl_8", 0 0, L_0x61dcb3e57ea0;  1 drivers
+v0x61dcb3e57290_0 .net "a", 0 0, v0x61dcb3e576f0_0;  1 drivers
+v0x61dcb3e57350_0 .net "b", 0 0, v0x61dcb3e577b0_0;  1 drivers
+v0x61dcb3e57410_0 .net "cin", 0 0, v0x61dcb3e57880_0;  1 drivers
+v0x61dcb3e574d0_0 .net "cout", 0 0, L_0x61dcb3e58120;  alias, 1 drivers
+v0x61dcb3e57590_0 .net "sum", 0 0, L_0x61dcb3e57c30;  alias, 1 drivers
+L_0x61dcb3e57ea0 .arith/sum 1, L_0x61dcb3e57d90, L_0x61dcb3e57e00;
+L_0x61dcb3e58120 .arith/sum 1, L_0x61dcb3e57ea0, L_0x61dcb3e57f40;
+    .scope S_0x61dcb3e3ef10;
+T_0 ;
+    %vpi_call 2 6 "$dumpfile", "full_adder.vcd" {0 0 0};
+    %vpi_call 2 7 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x61dcb3e3ef10 {0 0 0};
+    %vpi_call 2 8 "$monitor", "Time=%0t | a=%b | b=%b | cin=%b | sum=%b | cout=%b", $time, v0x61dcb3e576f0_0, v0x61dcb3e577b0_0, v0x61dcb3e57880_0, v0x61dcb3e57a50_0, v0x61dcb3e57980_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e576f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e577b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e57880_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e576f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e577b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e57880_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e576f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e577b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e57880_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e576f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e577b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e57880_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e576f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e577b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e57880_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e576f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e577b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e57880_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e576f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e577b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x61dcb3e57880_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e576f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e577b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x61dcb3e57880_0, 0, 1;
+    %delay 5, 0;
+    %vpi_call 2 17 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_full_adder.v";
+    "full_adder.v";
