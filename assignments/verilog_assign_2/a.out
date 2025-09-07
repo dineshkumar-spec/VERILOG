@@ -1,0 +1,84 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x55e15a671490 .scope module, "tb_tristate_mux2to1" "tb_tristate_mux2to1" 2 2;
+ .timescale 0 0;
+v0x55e15a6bf660_0 .var "i0", 0 0;
+v0x55e15a6bf720_0 .var "i1", 0 0;
+v0x55e15a6bf7f0_0 .var "s", 0 0;
+RS_0x7858713cf0a8 .resolv tri, L_0x55e15a6bf9c0, L_0x55e15a6bfb20;
+v0x55e15a6bf8f0_0 .net8 "y", 0 0, RS_0x7858713cf0a8;  2 drivers, strength-aware
+S_0x55e15a671620 .scope module, "dut" "tristate_mux2to1" 2 7, 3 2 0, S_0x55e15a671490;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "i0";
+    .port_info 1 /INPUT 1 "i1";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "y";
+L_0x55e15a6bf9c0 .functor BUFIF0 1, v0x55e15a6bf660_0, v0x55e15a6bf7f0_0, C4<0>, C4<0>;
+L_0x55e15a6bfb20 .functor BUFIF1 1, v0x55e15a6bf720_0, v0x55e15a6bf7f0_0, C4<0>, C4<0>;
+v0x55e15a671870_0 .net "i0", 0 0, v0x55e15a6bf660_0;  1 drivers
+v0x55e15a6bf360_0 .net "i1", 0 0, v0x55e15a6bf720_0;  1 drivers
+v0x55e15a6bf420_0 .net "s", 0 0, v0x55e15a6bf7f0_0;  1 drivers
+v0x55e15a6bf4f0_0 .net8 "y", 0 0, RS_0x7858713cf0a8;  alias, 2 drivers, strength-aware
+    .scope S_0x55e15a671490;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "tristate_mux2to1.vcd" {0 0 0};
+    %vpi_call 2 11 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55e15a671490 {0 0 0};
+    %vpi_call 2 12 "$monitor", "time=%0t | s=%b | i0=%b | i1=%b | y=%b", $time, v0x55e15a6bf7f0_0, v0x55e15a6bf660_0, v0x55e15a6bf720_0, v0x55e15a6bf8f0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e15a6bf660_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e15a6bf720_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e15a6bf7f0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e15a6bf660_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e15a6bf720_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e15a6bf7f0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e15a6bf660_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e15a6bf720_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e15a6bf7f0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e15a6bf660_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e15a6bf720_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e15a6bf7f0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e15a6bf660_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e15a6bf720_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e15a6bf7f0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e15a6bf660_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e15a6bf720_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e15a6bf7f0_0, 0, 1;
+    %delay 5, 0;
+    %vpi_call 2 23 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_tristate_mux.v";
+    "tristate_mux.v";
