@@ -1,0 +1,71 @@
+$date
+	Mon Sep  8 07:58:09 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_comp $end
+$var wire 1 ! z $end
+$var wire 1 " y $end
+$var wire 1 # x $end
+$var reg 1 $ a0 $end
+$var reg 1 % a1 $end
+$var reg 1 & b0 $end
+$var reg 1 ' b1 $end
+$scope module dut $end
+$var wire 1 $ a0 $end
+$var wire 1 % a1 $end
+$var wire 1 & b0 $end
+$var wire 1 ' b1 $end
+$var wire 1 ( w1 $end
+$var wire 1 ) w10 $end
+$var wire 1 * w2 $end
+$var wire 1 + w3 $end
+$var wire 1 , w4 $end
+$var wire 1 - w5 $end
+$var wire 1 . w6 $end
+$var wire 1 / w7 $end
+$var wire 1 0 w8 $end
+$var wire 1 1 w9 $end
+$var wire 1 # x $end
+$var wire 1 " y $end
+$var wire 1 ! z $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+01
+00
+0/
+0.
+0-
+0,
+1+
+1*
+0)
+1(
+1'
+1&
+0%
+0$
+1#
+0"
+0!
+$end
+#5
+1"
+0#
+1-
+0*
+0(
+0+
+0'
+1$
+#10

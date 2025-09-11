@@ -1,0 +1,20 @@
+module comp(a0,a1,b0,b1,x,y,z);
+input a0;
+input a1;
+input b0;
+input b1;
+output x,y,z;
+and g1(w1,~a1,b1);
+and g2(w2,~a1,~a0,b0);
+and g3(w3,~a0,b1,b0);
+or g4(x,w1,w2,w3);
+and g5(w4,~a1,~a0,~b1,~b0);
+and g6(w5,~a1,a0,~b1,b0);
+and g7(w6,a1,~a0,b1,~b0);
+and g8(w7,a1,a0,b1,b0);
+or g9(y,w4,w5,w6,w7);
+and g10(w8,a1,~b1);
+and g11(w9,a0,~b1,~b0);
+and g12(w10,a1,a0,~b0);
+or g13(z,w8,w9,w10);
+endmodule
