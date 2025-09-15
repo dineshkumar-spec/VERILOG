@@ -1,0 +1,57 @@
+$date
+	Sat Sep 13 06:11:16 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_priority $end
+$var wire 2 ! y [1:0] $end
+$var reg 4 " d [3:0] $end
+$scope module dut $end
+$var wire 4 # d [3:0] $end
+$var reg 2 $ y [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 $
+b1 #
+b1 "
+b0 !
+$end
+#5
+b1 !
+b1 $
+b10 "
+b10 #
+#10
+b10 !
+b10 $
+b100 "
+b100 #
+#15
+b11 !
+b11 $
+b1000 "
+b1000 #
+#20
+b1010 "
+b1010 #
+#25
+b1 !
+b1 $
+b10 "
+b10 #
+#30
+b11 !
+b11 $
+b1111 "
+b1111 #
+#35
