@@ -1,0 +1,22 @@
+//Write a function that checks if the input is power of 2.
+module power;
+reg[7:0]num;
+reg [7:0]result;
+function [8:0]pow_of_two;
+input [7:0]x;
+begin
+if(x==0)
+pow_of_two = 0;
+else
+pow_of_two = ((x & (x-1))==0) ? 1 : 0;
+end
+endfunction
+initial begin
+num = 8'd3;
+result=pow_of_two(num);
+$display("Number=%0d|Power of number 2  = %0d",num,result);
+num = 8'd8;
+result=pow_of_two(num);
+$display("Number=%0d|Power of number 2  = %0d",num,result);
+end
+endmodule
