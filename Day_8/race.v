@@ -19,3 +19,8 @@ end
 endmodule
 /*time=0|a=1|b=0
 time=5|a=0|b=0*/
+
+//put b=1 in 2nd initial begin it change the value
+/*time=0|a=1|b=0
+time=5|a=0|b=1
+time=10|a=0|b=0*/ 
