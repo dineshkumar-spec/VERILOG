@@ -6,9 +6,10 @@ a=1;b=0;
 end
 initial begin
 #5;a=b;
+#5;b<=a;
 end
 initial begin
-#5;a=0;
+#5;b=a;
 end
 initial begin
 $dumpfile("wave.vcd");
