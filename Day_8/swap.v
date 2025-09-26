@@ -12,6 +12,7 @@ always begin
 a=b;
 b=temp;
 end
+  
 initial begin
 $dumpfile("wave.vcd");
 $dumpvars;
