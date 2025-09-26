@@ -12,6 +12,14 @@ always begin
 a=b;
 b=temp;
 end
+//using non bocking
+module swap;
+integer a,b;
+initial begin
+  a=10;b=19;
+  a<=b;
+  b<=a;
+  end
   
 initial begin
 $dumpfile("wave.vcd");
