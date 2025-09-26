@@ -12,14 +12,6 @@ always begin
 a=b;
 b=temp;
 end
-//using non bocking
-module swap;
-integer a,b;
-initial begin
-  a=10;b=19;
-  a<=b;
-  b<=a;
-  end
   
 initial begin
 $dumpfile("wave.vcd");
@@ -40,3 +32,21 @@ time=16|temp=11|a=00|b=11
 time=18|temp=00|a=11|b=00
 swap.v:19: $finish called at 20 (1s)
 time=20|temp=11|a=00|b=11*/
+
+//using non bocking
+module swap;
+integer a,b;
+initial begin
+  a=10;b=19;
+  a<=b;
+  b<=a;
+  end
+  
+initial begin
+$dumpfile("wave.vcd");
+$dumpvars;
+$monitor("time=%0t|After swapping|a=%0d|b=%0d",$time,a,b);
+#20; $finish;
+end
+endmodule
+
