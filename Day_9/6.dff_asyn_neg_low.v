@@ -3,7 +3,7 @@ input reset,
 input d,
 output reg q);
 always@(negedge clk or negedge reset)begin
-        if(reset)
+        if(~reset)
                 q<=1'b0;
         else
                q<=d;
