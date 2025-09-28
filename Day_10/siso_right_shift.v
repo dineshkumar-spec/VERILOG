@@ -14,6 +14,7 @@ else
  shift<={si,shift[3:1]};
 end
 endmodule
+//tb
 module tb_siso;
 reg si;
 reg clk;
