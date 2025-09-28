@@ -1,3 +1,8 @@
+module sipo(
+input si,
+input clk,
+input reset,
+output reg [3:0]po);
 always@(posedge clk or posedge reset)begin
       if(reset)
       po <= 4'b0000;
