@@ -35,3 +35,8 @@ initial begin
 $monitor("time=%0t|po=%0b",$time,po);
 end
 endmodule
+/*time=0|po=0
+time=2|po=1
+time=6|po=11
+time=10|po=111
+time=14|po=1111*/
