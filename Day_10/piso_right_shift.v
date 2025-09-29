@@ -7,13 +7,16 @@ input rst,
 output reg so);
 reg [3:0]temp;
 always@(posedge clk)begin
+        //reset condition
         if(rst)begin
         temp<=4'b000;
         so<=1'b0;
         end
+        //load condition
         else if(~load)begin
                 temp <= pi;end
-                else begin
+        //shift condition        
+        else begin
  so<=temp[0];
  temp<=temp>>1;end
 end
