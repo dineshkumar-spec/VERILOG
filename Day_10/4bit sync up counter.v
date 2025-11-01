@@ -1,54 +1,27 @@
-module up(
-input clk,rst,
-output reg [3:0]count);
+module syn_count(input clk,reset,output reg [3:0]q);
 always@(posedge clk)begin
-if(~rst)
-count<=0;
+if(reset)
+q<=4'b0000;
 else
-count<=count+1;
+q<=q+1;
 end
 endmodule
-//tb
-module tb_up;
-reg clk,rst;
-wire [3:0]count;
 
-up dut (.clk(clk), .rst(rst), .count(count));
-initial begin
-clk=0;
-forever #5 clk = ~clk;
-end
-initial begin
-rst=0;
-#10 rst=1;
-#200;$finish;
-end
+module tb;
+reg clk;
+reg reset;
+wire [3:0]q;
+syn_count dut (.clk(clk),.reset(reset),.q(q));
 
-always@(count)
-$display("time=%0t|rst=%0h|count=%0d",$time,rst,count);
+initial clk=0;
+always #5 clk=~clk;
+
 initial begin
-$dumpfile("dump.vcd");
+$dumpfile("count.vcd");
 $dumpvars;
+$monitor("time=%0t|q=%b",$time,q);
+reset=1;#10;
+reset=0;#200;
+ $finish;
 end
 endmodule
-/*time=5|rst=0|count=0
-time=15|rst=1|count=1
-time=25|rst=1|count=2
-time=35|rst=1|count=3
-time=45|rst=1|count=4
-time=55|rst=1|count=5
-time=65|rst=1|count=6
-time=75|rst=1|count=7
-time=85|rst=1|count=8
-time=95|rst=1|count=9
-time=105|rst=1|count=10
-time=115|rst=1|count=11
-time=125|rst=1|count=12
-time=135|rst=1|count=13
-time=145|rst=1|count=14
-time=155|rst=1|count=15
-time=165|rst=1|count=0
-time=175|rst=1|count=1
-time=185|rst=1|count=2
-time=195|rst=1|count=3
-time=205|rst=1|count=4*/
