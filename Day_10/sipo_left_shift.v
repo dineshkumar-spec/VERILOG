@@ -1,42 +1,36 @@
-module sipo(
-input si,
-input clk,
-input reset,
-output reg [3:0]po);
+module sipo(input in,clk,reset,output reg [3:0]out);
 always@(posedge clk or posedge reset)begin
-      if(reset)
-      po <= 4'b0000;
-      else
-      po<={po[2:0],si};
+if(reset)
+out<=4'b0000;
+else
+out<={out[2:0],in};
 end
 endmodule
-
-module tb_sipo;
-reg si;
+//tb
+module tb_shift;
+reg in;
 reg clk;
 reg reset;
-wire[3:0]po;
+wire [3:0]out;
 
-sipo dut (.si(si), .clk(clk), .reset(reset), .po(po));
+sipo dut (in,clk,reset,out);
 
-always #2 clk = ~clk;
 initial begin
-clk=0;
-reset=1;
-si=0;
-#2;reset=0;
-si=1;#5;
-si=1;#5;
-si=1;#5;
-si=1;#5;
-#120 $finish;
+        clk=0;
+forever #5 clk = ~clk;
 end
+
 initial begin
-$monitor("time=%0t|po=%0b",$time,po);
+$dumpfile("sioo.vcd");
+$dumpvars;
+$monitor("time=%0t|clk=%b|reset=%b|input=%b|out=%b",$time,clk,reset,in,out);
+reset=1;in=1;#10;
+reset=0;
+ in=1;#10;
+ in=0;#10;
+ in=1;#10;
+ in=1;#10;
+
+#20 $finish;
 end
 endmodule
-/*time=0|po=0
-time=2|po=1
-time=6|po=11
-time=10|po=111
-time=14|po=1111*/
