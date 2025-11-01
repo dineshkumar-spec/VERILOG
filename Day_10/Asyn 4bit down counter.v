@@ -1,33 +1,27 @@
-module down(
-input clk,rst,
-output reg [3:0]count);
-  always@(posedge clk or negedge rst)begin
-if(~rst)
-count<=0;
+module asyn_down(input clk,reset,output reg [3:0]q);
+always@(posedge clk or negedge reset)begin
+if(reset)
+q<=4'b0000;
 else
-count<=count-1;
+q<=q-1;
 end
 endmodule
-//tb
-module tb_down;
-reg clk,rst;
-wire [3:0]count;
 
-down dut (.clk(clk), .rst(rst), .count(count));
-initial begin
-clk=0;
-forever #5 clk = ~clk;
-end
-initial begin
-rst=0;
-#10 rst=1;
-#250;$finish;
-end
+module tb;
+reg clk;
+reg reset;
+wire [3:0]q;
+asyn_down dut (.clk(clk),.reset(reset),.q(q));
 
-always@(count)
-$display("time=%0t|rst=%0h|count=%0d",$time,rst,count);
+initial clk=0;
+always #5 clk=~clk;
+
 initial begin
-$dumpfile("dump.vcd");
+$dumpfile("count.vcd");
 $dumpvars;
+$monitor("time=%0t|q=%b",$time,q);
+reset=1;#10;
+reset=0;#200;
+ $finish;
 end
 endmodule
