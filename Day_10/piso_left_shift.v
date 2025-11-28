@@ -7,7 +7,7 @@ else if(load)
 shift<=pi;
 else
         shift<={shift[2:0],1'b0};
-        so=shift[3];
+        so<=shift[3];
 end
 endmodule
 
