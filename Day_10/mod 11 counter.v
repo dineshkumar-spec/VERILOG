@@ -2,7 +2,7 @@ module mod(input clk, reset,output reg [3:0]q);
 always@(posedge clk)begin
 if(reset)
 q<=0;
-else if(q==4'b1010)
+  else if(q==4'b1011)
 q<=0;
 else
 q<=q+1;
